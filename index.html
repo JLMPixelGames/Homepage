@@ -1,71 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JLMPixelGames-Homepage</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f0f0;
-      color: #333;
-    }
-
-    .container {
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    p {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    a, button {
-      display: block;
-      width: 200px;
-      margin: 0 auto 10px; /* Added margin-bottom */
-      text-align: center;
-      padding: 10px;
-      background-color: #007bff;
-      color: #fff;
-      text-decoration: none;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-
-    a:hover, button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLMPixelGames-Homepage</title>
+    <link href="{{ url_for('static', filename='bootstrap.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/images/favicon.png" type="image/png">
 </head>
-
 <body>
-  <div class="container">
-    <h1>Scratch Profile</h1>
-    <p>Visit <a href="https://jlmpixelgames.github.io/Homepage/mediatree/scratch" target="_blank">JLMPixelGames</a> profile on Scratch.</p>
-    <p>Try <a href="https://jlmpixelgames.github.io/Homepage/mediatree/scratch/new_game" target="_blank">our newest Game</a>We hope you enjoy it.</p>
-    <p>JLMPixelGames</p>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-left">
+                <h1 name="home_bar">JLMPixelGames</h1>
+                <a href="/" class="nav-link">Home</a>
+                <a href="https://jlmpixelgames.github.io/Homepage/mediatree/scratch" class="nav-link">Scratch</a>
+                <a href="https://jlmpixelgames.github.io/Homepage/mediatree/yt" class="nav-link">YouTube</a>
+            </div>
+            <button onclick="window.location.href='/logout'" name="logout">Logout</button>
+        </div>
+    </nav>
     
-    <!-- Buttons for additional links -->
-    <a href="https://jlmpixelgames.github.io/Homepage/mediatree/yt" target="_blank"><button>YouTube</button></a>
-    <a href="https://jlmpixelgames.github.io/Homepage/mediatree/pixilart" target="_blank"><button>Pixilart</button></a>
-    <a href="https://jlmpixelgames.github.io/Homepage/mediatree/dc" target="_blank"><button>Discord</button></a>
-  </div>
+    <div class="container">
+        <h1>Scratch Profile</h1>
+        <p>Visit <a href="https://jlmpixelgames.github.io/Homepage/mediatree/scratch" target="_blank">JLMPixelGames</a> profile on Scratch.</p>
+        <p>Try <a href="https://jlmpixelgames.github.io/Homepage/mediatree/scratch/new_game" target="_blank">our newest Game</a>. We hope you enjoy it.</p>
+        
+        <div class="button-container">
+            <a href="https://jlmpixelgames.github.io/Homepage/mediatree/yt" target="_blank" class="profile-button">YouTube</a>
+            <a href="https://jlmpixelgames.github.io/Homepage/mediatree/pixilart" target="_blank" class="profile-button">Pixilart</a>
+            <a href="https://jlmpixelgames.github.io/Homepage/mediatree/dc" target="_blank" class="profile-button">Discord</a>
+        </div>
+    </div>
 </body>
-
+<style>
+    body {
+        background-image: url("{{ url_for('static', filename='bg.png') }}");
+        background-size: cover;
+        padding-top: 70px;
+        display: flex;
+        height: 100vh;
+        color: #fff !important;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(1rem);
+        height: 70px;
+        z-index: 100;
+    }
+    
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        height: 100%;
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .nav-link {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+    
+    .nav-link:hover {
+        text-decoration: underline;
+    }
+    
+    button[name="logout"] {
+        backdrop-filter: blur(1rem);
+        background-color: rgba(255, 255, 255, 0.1);
+        border: none;
+        border-radius: 10px;
+        padding: 15px 32px;
+        color: white;
+        cursor: pointer;
+        position: fixed;
+        right: 1rem;
+        font-size: medium;
+    }
+    
+    button[name="logout"]:hover {
+        backdrop-filter: blur(1.5rem);
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    h1[name="home_bar"] {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+    
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(1rem);
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    p {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+    
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .profile-button {
+        display: block;
+        width: 200px;
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(1rem);
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    
+    .profile-button:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(1.5rem);
+        text-decoration: none;
+    }
+</style>
 </html>
