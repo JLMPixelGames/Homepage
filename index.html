@@ -4,20 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JLMPixelGames-Homepage</title>
-    <link href="{{ url_for('static', filename='bootstrap.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/images/favicon.png" type="image/png">
+    <style>
+        body {
+            background-image: url("bg.png");
+            background-size: cover;
+            padding-top: 70px;
+            display: flex;
+            height: 100vh;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(1rem);
+            height: 70px;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            height: 100%;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+        
+        .logout-btn {
+            backdrop-filter: blur(1rem);
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 10px;
+            padding: 15px 32px;
+            color: white;
+            cursor: pointer;
+            font-size: medium;
+        }
+        
+        .logout-btn:hover {
+            backdrop-filter: blur(1.5rem);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .home-bar {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(1rem);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .profile-button {
+            display: block;
+            width: 200px;
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(1rem);
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        .profile-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(1.5rem);
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     <nav>
         <div class="nav-container">
             <div class="nav-left">
-                <h1 name="home_bar">JLMPixelGames</h1>
-                <a href="/" class="nav-link">Home</a>
-                <a href="https://jlmpixelgames.github.io/Homepage/mediatree/scratch" class="nav-link">Scratch</a>
-                <a href="https://jlmpixelgames.github.io/Homepage/mediatree/yt" class="nav-link">YouTube</a>
+                <h1 class="home-bar">JLMPixelGames</h1>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="scratch.html" class="nav-link">Scratch</a>
+                <a href="youtube.html" class="nav-link">YouTube</a>
             </div>
-            <button onclick="window.location.href='/logout'" name="logout">Logout</button>
+            <button class="logout-btn" onclick="logout()">Logout</button>
         </div>
     </nav>
     
@@ -32,134 +158,14 @@
             <a href="https://jlmpixelgames.github.io/Homepage/mediatree/dc" target="_blank" class="profile-button">Discord</a>
         </div>
     </div>
+
+    <script>
+        function logout() {
+            // Simple logout function - in a real app, this would handle actual logout logic
+            alert("Logout functionality would go here");
+            // Redirect to login page example:
+            // window.location.href = "login.html";
+        }
+    </script>
 </body>
-<style>
-    body {
-        background-image: url("{{ url_for('static', filename='bg.png') }}");
-        background-size: cover;
-        padding-top: 70px;
-        display: flex;
-        height: 100vh;
-        color: #fff !important;
-        font-family: 'Roboto', sans-serif;
-        margin: 0;
-    }
-    
-    nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(1rem);
-        height: 70px;
-        z-index: 100;
-    }
-    
-    .nav-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 2rem;
-        height: 100%;
-        margin: 0 auto;
-        width: 100%;
-    }
-    
-    .nav-left {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .nav-link {
-        color: white;
-        text-decoration: none;
-        font-size: 1rem;
-    }
-    
-    .nav-link:hover {
-        text-decoration: underline;
-    }
-    
-    button[name="logout"] {
-        backdrop-filter: blur(1rem);
-        background-color: rgba(255, 255, 255, 0.1);
-        border: none;
-        border-radius: 10px;
-        padding: 15px 32px;
-        color: white;
-        cursor: pointer;
-        position: fixed;
-        right: 1rem;
-        font-size: medium;
-    }
-    
-    button[name="logout"]:hover {
-        backdrop-filter: blur(1.5rem);
-        background-color: rgba(255, 255, 255, 0.2);
-    }
-    
-    h1[name="home_bar"] {
-        margin: 0;
-        font-size: 1.5rem;
-    }
-    
-    .container {
-        max-width: 600px;
-        margin: 20px auto;
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(1rem);
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    
-    h1 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    
-    p {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    
-    a {
-        color: #007bff;
-        text-decoration: none;
-    }
-    
-    a:hover {
-        text-decoration: underline;
-    }
-    
-    .button-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-    
-    .profile-button {
-        display: block;
-        width: 200px;
-        text-align: center;
-        padding: 10px;
-        background-color: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(1rem);
-        color: #fff;
-        text-decoration: none;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-    
-    .profile-button:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(1.5rem);
-        text-decoration: none;
-    }
-</style>
 </html>
