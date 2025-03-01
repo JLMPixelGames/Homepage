@@ -56,21 +56,6 @@
             text-decoration: underline;
         }
         
-        .logout-btn {
-            backdrop-filter: blur(1rem);
-            background-color: rgba(255, 255, 255, 0.1);
-            border: none;
-            border-radius: 10px;
-            padding: 15px 32px;
-            color: white;
-            cursor: pointer;
-            font-size: medium;
-        }
-        
-        .logout-btn:hover {
-            backdrop-filter: blur(1.5rem);
-            background-color: rgba(255, 255, 255, 0.2);
-        }
         
         .home-bar {
             margin: 0;
@@ -143,7 +128,6 @@
                 <a href="scratch.html" class="nav-link">Scratch</a>
                 <a href="youtube.html" class="nav-link">YouTube</a>
             </div>
-            <button class="logout-btn" onclick="logout()">Logout</button>
         </div>
     </nav>
     
@@ -159,13 +143,5 @@
         </div>
     </div>
 
-    <script>
-        function logout() {
-            // Simple logout function - in a real app, this would handle actual logout logic
-            alert("Logout functionality would go here");
-            // Redirect to login page example:
-            // window.location.href = "login.html";
-        }
-    </script>
 </body>
 </html>
